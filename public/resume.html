@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amirul Ibrahim - Resume</title>
+  <style>
+    :root {
+      --text-color: #1a1a1a;
+      --bg-color: #ffffff;
+      --accent-color: #4f46e5;
+      --border-color: #e5e7eb;
+      --subtext-color: #4b5563;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text-color);
+      background-color: #f3f4f6;
+      line-height: 1.5;
+      padding: 40px 20px;
+    }
+
+    .resume-container {
+      max-width: 850px;
+      margin: 0 auto;
+      background: var(--bg-color);
+      padding: 50px 60px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      border-radius: 8px;
+    }
+
+    /* Print / Download Button */
+    .action-bar {
+      max-width: 850px;
+      margin: 0 auto 20px auto;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .btn-print {
+      background: #a855f7;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(168, 85, 247, 0.3);
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .btn-print:hover {
+      background: #9333ea;
+      transform: translateY(-1px);
+    }
+
+    header {
+      text-align: center;
+      border-bottom: 2px solid var(--text-color);
+      padding-bottom: 20px;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 4px;
+      color: #000;
+    }
+
+    .role-title {
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--subtext-color);
+      margin-bottom: 12px;
+    }
+
+    .contact-info {
+      font-size: 13.5px;
+      color: var(--subtext-color);
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .contact-info a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+      color: var(--accent-color);
+    }
+
+    section {
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent-color);
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 4px;
+      margin-bottom: 14px;
+    }
+
+    p.summary {
+      font-size: 14px;
+      color: #374151;
+      text-align: justify;
+    }
+
+    /* Skills Table/List */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      row-gap: 8px;
+      font-size: 14px;
+    }
+
+    .skill-category {
+      font-weight: 600;
+      color: #1f2937;
+    }
+
+    .skill-items {
+      color: #4b5563;
+    }
+
+    /* Experience & Projects */
+    .item {
+      margin-bottom: 18px;
+    }
+
+    .item:last-child {
+      margin-bottom: 0;
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+    }
+
+    .item-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #111827;
+    }
+
+    .item-subtitle {
+      font-size: 14px;
+      font-weight: 600;
+      color: #4b5563;
+    }
+
+    .item-date {
+      font-size: 13px;
+      font-weight: 500;
+      color: #6b7280;
+    }
+
+    .item-description {
+      font-size: 13.5px;
+      color: #4b5563;
+      margin-bottom: 6px;
+    }
+
+    ul {
+      margin-left: 18px;
+      font-size: 13.5px;
+      color: #374151;
+    }
+
+    li {
+      margin-bottom: 4px;
+    }
+
+    .tech-stack {
+      font-size: 12.5px;
+      color: #6b7280;
+      font-style: italic;
+      margin-top: 4px;
+    }
+
+    /* Certifications Grid */
+    .certs-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      font-size: 13.5px;
+    }
+
+    .cert-item {
+      background: #f9fafb;
+      padding: 10px 14px;
+      border-radius: 6px;
+      border-left: 3px solid var(--accent-color);
+    }
+
+    .cert-title {
+      font-weight: 700;
+      color: #1f2937;
+    }
+
+    .cert-issuer {
+      font-size: 12.5px;
+      color: #6b7280;
+    }
+
+    @media print {
+      body {
+        background: none;
+        padding: 0;
+      }
+      .resume-container {
+        box-shadow: none;
+        padding: 0;
+        max-width: 100%;
+        width: 100%;
+      }
+      .action-bar {
+        display: none;
+      }
+      @page {
+        margin: 1.5cm;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="action-bar">
+    <button class="btn-print" onclick="window.print()">
+      <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+        <path d="M2.5 8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1z"/>
+        <path d="M5 1a2 2 0 0 0-2 2v2H2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h1v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V3a2 2 0 0 0-2-2H5zM4 3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2H4V3zm1 5a2 2 0 0 0-2 2v1H2a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v-1a2 2 0 0 0-2-2H5zm7 2v3a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1z"/>
+      </svg>
+      Print / Save as PDF
+    </button>
+  </div>
+
+  <div class="resume-container">
+    <header>
+      <h1>Amirul Ibrahim</h1>
+      <div class="role-title">Bachelor of Information Technology (Software Development)</div>
+      <div class="contact-info">
+        <span>📧 <a href="mailto:amirul.ibrahim@email.com">amirul.ibrahim@email.com</a></span> •
+        <span>🔗 <a href="https://linkedin.com/in/amirul-ibrahim" target="_blank">linkedin.com/in/amirul-ibrahim</a></span> •
+        <span>💻 <a href="https://github.com/amirul-ibrahim" target="_blank">github.com/amirul-ibrahim</a></span>
+      </div>
+    </header>
+
+    <section>
+      <h2>Professional Summary</h2>
+      <p class="summary">
+        Software developer and IT student with a strong foundation in full-stack engineering, algorithms, and responsive UI design. Passionate about building clean, performant, and user-friendly web applications. Experienced in developing scalable APIs, interactive dashboards, and modern cloud-based software solutions.
+      </p>
+    </section>
+
+    <section>
+      <h2>Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-category">Languages:</div>
+        <div class="skill-items">Python, TypeScript, JavaScript, Java, C++, SQL, Bash</div>
+
+        <div class="skill-category">Frontend:</div>
+        <div class="skill-items">React, Next.js, Tailwind CSS, Three.js, GSAP, HTML5/CSS3</div>
+
+        <div class="skill-category">Backend & Cloud:</div>
+        <div class="skill-items">Node.js, Express, FastAPI, REST APIs, WebSockets, AWS EC2, Vercel</div>
+
+        <div class="skill-category">Databases:</div>
+        <div class="skill-items">PostgreSQL, MySQL, MongoDB, Redis, Supabase, Prisma</div>
+
+        <div class="skill-category">Tools & Concepts:</div>
+        <div class="skill-items">Git, Docker, Linux, CI/CD, Agile/Scrum, Data Structures & Algorithms</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Work Experience</h2>
+      
+      <div class="item">
+        <div class="item-header">
+          <div>
+            <span class="item-title">Software Engineering Intern</span> — 
+            <span class="item-subtitle">TechVenture Studio</span>
+          </div>
+          <div class="item-date">JAN 2026 – APR 2026</div>
+        </div>
+        <ul>
+          <li>Designed and implemented RESTful APIs with Node.js/Express, reducing average response latency by 38%.</li>
+          <li>Built reusable React component library consumed across 3 internal dashboards, cutting UI dev time by 40%.</li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <div>
+            <span class="item-title">Full-Stack Web Developer (Freelance / Contract)</span>
+          </div>
+          <div class="item-date">JUN 2025 – DEC 2025</div>
+        </div>
+        <ul>
+          <li>Delivered 5+ client websites (Next.js + Supabase) with 100% on-time delivery and 5-star client satisfaction.</li>
+          <li>Integrated secure payment gateways (Stripe, FPX) and automated client onboarding workflows using Resend.</li>
+        </ul>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <div>
+            <span class="item-title">Student Lab Assistant</span> — 
+            <span class="item-subtitle">University IT Lab</span>
+          </div>
+          <div class="item-date">SEP 2024 – MAY 2025</div>
+        </div>
+        <ul>
+          <li>Assisted 80+ students per semester with programming coursework in Python, Java, and data structures.</li>
+          <li>Developed automated grading scripts in Python that saved lab instructors 6+ hours per week.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+      
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">CodeCollab — Real-Time Collaborative Code Editor</span>
+          <div class="item-date">MAR 2026</div>
+        </div>
+        <p class="item-description">
+          A collaborative, real-time code editor supporting 20+ languages with live cursor sharing and AI code suggestions. Achieved sub-50ms sync latency under load testing.
+        </p>
+        <div class="tech-stack">Tech Stack: Next.js, Socket.io, OpenAI API, Monaco Editor, Tailwind CSS</div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">AlgoViz — Interactive Algorithm Visualiser</span>
+          <div class="item-date">NOV 2025</div>
+        </div>
+        <p class="item-description">
+          Interactive data-structures & algorithms visualiser featuring 15+ sorting, graph, and tree algorithms with step-by-step animation controls, used by 200+ students.
+        </p>
+        <div class="tech-stack">Tech Stack: React, D3.js, TypeScript, Tailwind CSS</div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-title">InventoFlow — Multi-Tenant Inventory SaaS</span>
+          <div class="item-date">AUG 2025</div>
+        </div>
+        <p class="item-description">
+          Inventory management SaaS featuring real-time stock tracking, low-stock alerts via WhatsApp API, sales analytics dashboard, and automated PDF report generation.
+        </p>
+        <div class="tech-stack">Tech Stack: Next.js, Supabase, Prisma, WhatsApp API</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Certifications & Milestones</h2>
+      <div class="certs-list">
+        <div class="cert-item">
+          <div class="cert-title">AWS Certified Cloud Practitioner</div>
+          <div class="cert-issuer">Amazon Web Services (AWS)</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-title">Meta Front-End Developer Certificate</div>
+          <div class="cert-issuer">Meta / Coursera</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-title">Google Data Analytics Certificate</div>
+          <div class="cert-issuer">Google / Coursera</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-title">Full Stack Developer Certification</div>
+          <div class="cert-issuer">freeCodeCamp (300+ Hours)</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amirul Ibrahim | Software Developer</title>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    /* Standard Bootstrap/Template Navbar */
+    .navbar {
+      background: var(--card-bg);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .brand {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 4rem 1rem;
+      background: var(--card-bg);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      margin-bottom: 3rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+      color: var(--text-main);
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 1.5rem auto;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: #ffffff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background 0.2s;
+    }
+
+    .btn:hover {
+      background: var(--primary-hover);
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--text-main);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.5rem;
+    }
+
+    /* About Card */
+    .about-card {
+      background: var(--card-bg);
+      padding: 2rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      color: #334155;
+    }
+
+    /* Skills Pills */
+    .skills-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-pill {
+      background: #eff6ff;
+      color: var(--primary);
+      padding: 0.4rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 1px solid #bfdbfe;
+    }
+
+    /* Experience List */
+    .exp-card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      margin-bottom: 1rem;
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.5rem;
+    }
+
+    .exp-role {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text-main);
+    }
+
+    .exp-company {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .exp-date {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      background: #f1f5f9;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+    }
+
+    .exp-card ul {
+      margin-left: 1.25rem;
+      color: #475569;
+      font-size: 0.95rem;
+    }
+
+    .exp-card li {
+      margin-bottom: 0.35rem;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-thumb {
+      height: 140px;
+      background: #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #64748b;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project-body {
+      padding: 1.25rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-desc {
+      font-size: 0.9rem;
+      color: #475569;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-tag {
+      background: #f1f5f9;
+      color: #475569;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    .project-links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-right: 1rem;
+    }
+
+    .project-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: var(--card-bg);
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="#" class="brand">Amirul.dev</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    
+    <!-- Hero Section -->
+    <div class="hero">
+      <h1>Hi, I'm Amirul Ibrahim 👋</h1>
+      <p>Bachelor of Information Technology (Software Development). Passionate about full-stack engineering, clean APIs, and building reliable software.</p>
+      <a href="mailto:amirul.ibrahim@email.com" class="btn">Get In Touch</a>
+    </div>
+
+    <!-- About Section -->
+    <section id="about">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-card">
+        <p>I'm a software developer and IT student who loves turning complex problems into clean digital experiences. I bring strong fundamentals in software development, a product-minded mindset, and an obsession with code quality. Whether it's architecting a full-stack web app, optimising an algorithm, or exploring a new framework, I'm always shipping something.</p>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="skills-wrapper">
+        <span class="skill-pill">Python</span>
+        <span class="skill-pill">TypeScript</span>
+        <span class="skill-pill">JavaScript</span>
+        <span class="skill-pill">Java</span>
+        <span class="skill-pill">C++</span>
+        <span class="skill-pill">SQL</span>
+        <span class="skill-pill">React</span>
+        <span class="skill-pill">Next.js</span>
+        <span class="skill-pill">Node.js</span>
+        <span class="skill-pill">Express</span>
+        <span class="skill-pill">Tailwind CSS</span>
+        <span class="skill-pill">PostgreSQL</span>
+        <span class="skill-pill">MongoDB</span>
+        <span class="skill-pill">Git</span>
+        <span class="skill-pill">Docker</span>
+        <span class="skill-pill">Linux</span>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+      <h2 class="section-title">Work Experience</h2>
+      
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <span class="exp-role">Software Engineering Intern</span> at <span class="exp-company">TechVenture Studio</span>
+          </div>
+          <span class="exp-date">Jan 2026 – Apr 2026</span>
+        </div>
+        <ul>
+          <li>Designed and implemented RESTful APIs with Node.js/Express, reducing average response latency by 38%.</li>
+          <li>Built reusable React component library consumed across 3 internal dashboards, cutting UI dev time by 40%.</li>
+        </ul>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <span class="exp-role">Full-Stack Web Developer</span> at <span class="exp-company">Freelance / Contract</span>
+          </div>
+          <span class="exp-date">Jun 2025 – Dec 2025</span>
+        </div>
+        <ul>
+          <li>Delivered 5+ client websites (Next.js + Supabase) with 100% on-time delivery and 5-star client satisfaction.</li>
+          <li>Integrated secure payment gateways (Stripe, FPX) and automated client onboarding workflows using Resend.</li>
+        </ul>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <span class="exp-role">Student Lab Assistant</span> at <span class="exp-company">University IT Lab</span>
+          </div>
+          <span class="exp-date">Sep 2024 – May 2025</span>
+        </div>
+        <ul>
+          <li>Assisted 80+ students per semester with programming coursework in Python, Java, and data structures.</li>
+          <li>Developed automated grading scripts in Python that saved lab instructors 6+ hours per week.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <h2 class="section-title">Featured Projects</h2>
+      
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-thumb">📁 CodeCollab Preview</div>
+          <div class="project-body">
+            <h3 class="project-title">CodeCollab — Code Editor</h3>
+            <p class="project-desc">A collaborative, real-time code editor supporting 20+ languages with live cursor sharing and AI code suggestions.</p>
+            <div class="project-tags">
+              <span class="project-tag">Next.js</span>
+              <span class="project-tag">Socket.io</span>
+              <span class="project-tag">OpenAI</span>
+            </div>
+            <div class="project-links">
+              <a href="#">GitHub Repo &rarr;</a>
+              <a href="#">Live Demo &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-thumb">📊 AlgoViz Preview</div>
+          <div class="project-body">
+            <h3 class="project-title">AlgoViz — Algorithm Visualiser</h3>
+            <p class="project-desc">Interactive data-structures & algorithms visualiser featuring 15+ sorting, graph, and tree algorithms with step-by-step animation controls.</p>
+            <div class="project-tags">
+              <span class="project-tag">React</span>
+              <span class="project-tag">D3.js</span>
+              <span class="project-tag">TypeScript</span>
+            </div>
+            <div class="project-links">
+              <a href="#">GitHub Repo &rarr;</a>
+              <a href="#">Live Demo &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-thumb">📦 InventoFlow Preview</div>
+          <div class="project-body">
+            <h3 class="project-title">InventoFlow — Inventory SaaS</h3>
+            <p class="project-desc">Multi-tenant inventory management SaaS with real-time stock tracking, low-stock alerts via WhatsApp API, and sales analytics.</p>
+            <div class="project-tags">
+              <span class="project-tag">Next.js</span>
+              <span class="project-tag">Supabase</span>
+              <span class="project-tag">Prisma</span>
+            </div>
+            <div class="project-links">
+              <a href="#">GitHub Repo &rarr;</a>
+              <a href="#">Live Demo &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Amirul Ibrahim. Built with standard HTML, CSS, and Bootstrap principles.</p>
+  </footer>
+
+</body>
+</html>
