@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ⚡ DevHQ-Style 3D Interactive Developer Portfolio
 
-## Getting Started
+A high-performance, dark-mode single-page developer portfolio inspired by [DevHQ](https://aakarsh-devhq.vercel.app). Built with **Next.js 16 (App Router)**, **Tailwind CSS v4**, **Three.js**, and **GSAP**. Features immersive 3D animations, interactive physics, custom cursor hover effects, and a 100% mobile-responsive layout.
 
-First, run the development server:
+![Portfolio Preview](https://img.shields.io/badge/Status-Live_Ready-a855f7?style=for-the-badge)
+![Next.js](https://img.shields.io/badge/Next.js_16-black?style=for-the-badge&logo=next.js&logoColor=white)
+![Three.js](https://img.shields.io/badge/Three.js-black?style=for-the-badge&logo=three.js&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_v4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 
+---
+
+## ✨ Key Features & Interactive Physics
+
+- 🌌 **3D Particle Starfield**: Custom WebGL `PointsMaterial` starfield that dynamically rotates with mouse movement.
+- ⌨️ **Role Cycling Animation**: Hero section dynamically types, pauses, and backspaces through professional roles (`DEVELOPER`, `DESIGNER`, `PROGRAMMER`, `WRITER`, `CODER`).
+- 🧊 **Real 3D Perspective Tilt**: The "About Me" glassmorphism card tracks mouse coordinates in real time to tilt in 3D space with layered `translateZ` depth.
+- 🎯 **Interactive Neon Cursor**: Custom cursor outline that smoothly expands and glows purple (`#a855f7`) when hovering over interactive links, buttons, and cards.
+- 🌊 **Liquid Wave Skill Badges**: Hovering over tech stack icons triggers a rising purple liquid wave fill animation.
+- 📜 **Scroll-Progress Timeline**: Alternating left/right work experience timeline with a glowing neon purple progress bar that grows dynamically down the center as you scroll.
+- 📱 **100% Mobile & Touch Responsive**: Full hamburger menu drawer, responsive CSS grid layouts, and automatic touchscreen optimization (disables custom cursor on mobile touchscreens).
+- 🖨️ **Printable HTML & PDF Resume**: Integrated resume viewer modal with a one-click **"🖨️ Print / Save as PDF"** export button (`public/resume.html` & `RESUME.md`).
+
+---
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router & React Server Components)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/) + Custom CSS Physics & Animations
+- **3D Graphics**: [Three.js](https://threejs.org/) + native WebGL Canvas
+- **Animations**: [GSAP](https://greensock.com/gsap/) + ScrollTrigger & CSS `@keyframes`
+- **Contact Form**: [Web3Forms API](https://web3forms.com/) (No backend server required)
+- **Deployment**: [Vercel](https://vercel.com/) / GitHub Pages
+
+---
+
+## 🚀 Getting Started Locally
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/Lavanyaa7s/amirul-ibrahim-Portfolio.git
+   cd amirul-ibrahim-Portfolio
+   ```
+
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+3. **Run the development server**:
+   ```bash
+   npm run dev
+   ```
+
+4. **Open in Browser**:
+   Navigate to [http://localhost:3000](http://localhost:3000) to view the interactive portfolio!
+
+---
+
+## ✏️ Customizing Your Content
+
+All website content, links, work experiences, projects, skills, and certifications are managed in a single central data file:
+👉 **`src/data/portfolio.ts`**
+
+To update your email or add new projects, simply edit `src/data/portfolio.ts` and save — the website will hot-reload automatically!
+
+---
+
+## 📦 Production Build & Deployment
+
+To verify the production build locally:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Deploy to Vercel
+The easiest way to deploy is using the [Vercel CLI](https://vercel.com/cli) or by importing your GitHub repository into the Vercel Dashboard:
+```bash
+npx vercel --prod
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📄 License & Credits
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Designed and built by **Amirul Ibrahim**. Inspired by the modern dark-mode aesthetic of DevHQ.
